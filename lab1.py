@@ -22,12 +22,9 @@ def menu():
         </header>
 
         <ol>
-            <li>
-                <a href="/lab1">Лабораторная работа 1</a>
-            </li>
-            <li>
-                <a href="/lab2">/lab2</a>
-            </li>
+            <li><a href="/lab1">Лабораторная работа 1</a></li>
+            <li><a href="/lab2">/lab2</a></li>
+            <li><a href="/lab3">/lab3</a></li>
         </ol>
 
         <footer>
