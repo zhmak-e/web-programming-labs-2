@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block lab %}Лабораторная работа 2{% endblock %}
+
+{% block main %}
+    <h1>Books</h1>
+    <ol>
+        {% for book in ['abc', 'def', 'sss'] %}
+        <li>{{ book }}</li>
+        {% endfor %}
+    </ol>
+{% endblock %}
