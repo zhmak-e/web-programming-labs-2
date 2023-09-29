@@ -23,3 +23,11 @@ footer {
     left: 0;
     right: 0;
 }
+
+.menu {
+    position: absolute;
+}
+
+.menu a {
+    color: blue;
+}
