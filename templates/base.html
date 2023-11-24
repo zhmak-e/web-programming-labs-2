@@ -3,9 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <title>Иван Иванов. {% block lab %}{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
-    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    {%if request.cookies.get('color')%}
+    <style>
+        body{
+            color:{{request.cookies.get('color')}};
+            background-color:{{request.cookies.get('background-color')}};
+            font-size:{{request.cookies.get('font-size')}};
+        }
+        </style>
+    {%endif%}
+    {% block script %}{% endblock %}
 </head>
 <body>
     <header>
