@@ -22,7 +22,7 @@ def menu():
         </header>
 
 
-        <div style="display:none">
+        <div>
             <li><a href="/form">Формы</a></li>
         </div>
 
