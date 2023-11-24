@@ -19,7 +19,9 @@ def example():
 
 @lab2.route('/lab2/')
 def lab():
-    return render_template('lab2.html')
+    s = render_template('lab2.html')
+    print(type(s))
+    return s
 
 
 @lab2.route('/lab2/books')

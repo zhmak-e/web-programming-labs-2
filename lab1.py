@@ -18,13 +18,20 @@ def menu():
     </head>
     <body>
         <header>
-            НГТУ, ФБ, WEB-программирование, часть 2. Список лабораторных
+            НГТУ, ФБ, WEB-программирование, часть 2. <!-- Список лабораторных -->
         </header>
+
+
+        <div style="display:none">
+            <li><a href="/form">Формы</a></li>
+        </div>
+
 
         <ol>
             <li><a href="/lab1">Лабораторная работа 1</a></li>
-            <li><a href="/lab2">/lab2</a></li>
-            <li><a href="/lab3">/lab3</a></li>
+            <li><a href="/lab2">Лабораторная работа 2</a></li>
+            <li><a href="/lab3">Лабораторная работа 3</a></li>
+            <li><a href="/lab4">Лабораторная работа 4</a></li>
         </ol>
 
         <footer>
