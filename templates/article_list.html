@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Articles</title>
+</head>
+<body>
+    <h1>User Articles</h1>
+    <ul>
+        {% for articles in user_articles %}
+            <li>
+                <h2>{{ title }}</h2>
+                <p>{{ article_text }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

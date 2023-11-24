@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block lab %}Laboratory work 2{% endblock %}
+
+{% block main %}
+<link rel="stylesheet" type="text/css" href="'''+ url_for('static', filename='main.css')+'''">
+    <h1>Studying tips</h1>
+    <div>Simple tips for comfort student life</div>
+
+    <h2>Think critically about what you’re learning</h2>
+    <div>You can approach learning like a master chef. 
+    Slice and dice the ideas. Chew them up in little bits. 
+    Taste the flavors and decide if they agree with your palette. 
+    Think of a dish that you might create.
+    <p>Too obscure? Oops. How about…</p></div>
+    <img class='img 'src="/static/tip1.jpg">
+
+    <h2>Use grades to keep on track with learning</h2>
+    <div>Getting a low grade? Don’t quit. And don’t get mad at the teacher.
+    Change how you study for your class. Look at your new 
+    scores to see how that’s working. No improvement? Never give up. 
+    Try something else. And when you do see them 
+    move up – celebrate!</div>
+    <img class='img 'src="/static/tip2.jpg">
+
+    <h2>Rehearse and remember</h2>
+    <div>Imagine you got the lead in your school play.
+    How would you get your lines down?
+    You’d rehearse! You’d practice saying them. 
+    Several times, without looking.</div>
+    <img class='img 'src="/static/tip3.jpg">
+
+    <h2>Follow the clues to recover lost memories</h2>
+    <div><p>You’ve studied well.</p>
+    You’re doing pretty well on this quiz. 
+    But you can’t remember the answer to #3. You know you knew it. 
+    It’s on the tip of your tongue, but you can’t pry it out.
+    <p>What do you do?</p>
+    <p>Don’t cry (or pry). There’s a simple trick that can help to find that elusive memory.</p>
+    Think of what else you know about the topic. Or visualize yourself back in your study place. Follow these related memories as clues to track your target and flush it out.</div>
+    <img class='img 'src="/static/tip4.jpg">
+
+    <h2>Work out the learning goals</h2>
+    <div>The best students don’t blindly follow teachers’ assignments.
+    They take a moment and look them over to grasp the intent.
+    Think about what you are supposed to be learning. 
+    Determine the objective. And don’t just rely on the teacher. 
+    Set your own goals for studying: What will you accomplish?
+    <p>Then, make it happen.</p> </div>
+    <img class='img 'src="/static/tip5.jpg">
+
+
+
+    
+{% endblock %}

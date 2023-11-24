@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+
+{% block lab %}Laboratory work 3{% endblock %}
+
+{% block main %}
+
+    {%if user and age and departure and destination and date %}
+
+    <h1>Hi, {{user}}</h1>
+    <h2>We are happy to see you here</h2>
+    <h2>You bought the ticket. That is details</h2>
+    <div>Name: {{user}}</div>
+    <div>Ticket type: 
+        {% if type == 'adult' %}
+        adult
+        {% else %}
+        child
+        {% endif %}
+    </div>
+
+    <div>Seat in the train: 
+        {% if seat == 'upper side berth' %}
+        upper side berth
+        {% elif seat == 'lower seat' %}
+        lower seat
+        {% elif seat == 'lower side berth' %}
+        lower side berth
+        {% else %}
+        upper seat
+        {% endif %}
+    </div>
+
+    <div>Luggage: 
+        {% if lugagge == 'no' %}
+            no
+        {% else %}
+            yes
+        {% endif %}
+    </div>
+    <div>Your age: {{age}}</div>
+    <div>Departure from: {{departure}}</div>
+    <div>Destination point: {{destination}}</div>
+    <div>Date: {{date}}</div>
+
+
+    {%else%}
+
+
+    <h1>It's time to travel</h1>
+
+    <form >
+
+        <label>Who will travel:</label>
+        <div>
+            <input type="text" placeholder="what is your full name?" 
+                name="user" value="{{user or ''}}">
+            <span class="error">{{errors.user}}</span>
+        </div>
+
+        <div>Ticket type:</div>
+        <label>
+            <input type="radio" name="type" value="child" checked >child
+        </label>
+        <label>
+            <input type="radio" name="type" value="adult">adult
+        </label>
+
+        <div>Seat in the train:</div>
+        <label>
+            <input type="radio" name="seat" 
+            value ="upper seat" checked>upper seat
+        </label>
+        <label>
+            <input type="radio" name="seat" value="lower seat">lower seat
+        </label>
+        <label>
+            <input type="radio" name="seat" 
+            value="lower side berth" >lower side berth
+        </label>
+        <label>
+            <input type="radio" name="seat" 
+            value="upper side berth" >upper side berth
+        </label>
+
+        <div>Do you have luggage:</div>
+        <label>
+            <input type="radio" name="lugagge" value='yes' checked>yes
+        </label>
+        <label>
+            <input type="radio" name="lugagge" value="no">no
+        </label>
+
+        <div>Your age:</div>
+        <div>
+            <input type="number" name="age" value="{{age or ''}}"
+                min="18" max="120">
+            <span class="error">{{errors.age}}</span>
+        </div>
+
+        <div>Departure point:</div>
+        <div>
+            <input type="text" name="departure" value="{{departure or ''}}">
+            <span class="error">{{errors.departure}}</span>
+        </div>
+
+        <div>Destination point:</div>
+        <div>
+            <input type="text" name="destination" 
+                    value="{{destination or ''}}">
+            <span class="error">{{errors.destination}}</span>
+        </div>
+
+        <div>Date you'd like to travel on:</div>
+        <div>
+            <input type="date" name="date" 
+                    value="{{date or ''}}">
+            <span class="error">{{errors.date}}</span>
+        </div>
+            
+        <div>
+            <button type="submit">buy</button>
+        </div>
+    </form>
+    {%endif%}
+
+{%endblock%}

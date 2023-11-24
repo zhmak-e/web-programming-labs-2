@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block lab %}Laboratory work 4{% endblock %}
+
+{% block main %}
+
+
+<h1>Заказ зерна</h1>
+ <ol>
+    <li>ячмень: 12 000 руб/т;</li>
+    <li>овёс: 8 500 руб/т;</li>
+    <li>пшеница: 8 700 руб/т;</li>
+    <li>рожь: 14 000 руб/т.</li>
+    </ol>
+
+    {%if seed%}
+        <div>Заказ успешно сформирован. Вы заказали {{seed}}.
+            Вес: {{ves}} тонны. Сумма к оплате: {{price}} руб. {{mes}}
+            <div>
+                <a href="/lab4/seed">order again</a>
+            </div>
+        </div>
+        <p></p>
+    {%endif%}
+
+    {%if message%}
+        <span class="error">{{message}}</span>
+        <div>
+            <a href="/lab4/seed">order again</a>
+        </div>
+    {%endif%}
+
+
+<form  method="POST">
+   
+    <div>
+        <label>Выберите зерно</label>
+        <select name="seed">
+            <option value="Ячмень"  name="seed">Ячмень</option>
+            <option value="Овес"  name="seed">Овёс</option>
+            <option value="Пшеница"  name="seed">Пшеница</option>
+            <option value="Рожь" name="seed">Рожь</option>
+        </select>
+    </div>
+    <p></p>
+    <div>
+        <label>Необходимый вес</label>
+        <input type="number" name="ves" value="{{ves or ''}}">
+    </div>
+    <p></p>
+    <div>
+        <button type="submit">Заказать</button>
+    </div>
+</form>
+
+{%endblock%}

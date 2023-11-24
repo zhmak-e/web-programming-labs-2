@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block lab %}Laboratory work 3{% endblock %}
+
+{% block main %}
+
+if {%user%}
+
+<h1>Congratulations, {{user}}! You have a trip soon</h1>
+
+{%endblock%}
