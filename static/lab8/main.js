@@ -20,9 +20,14 @@ function fillCourseList() {
 
             let editButton = document.createElement('button');
             editButton.innerText = 'редактировать';
-
+            editButton.onclick = function() {
+                editCourse(i, courses[i]);
+            };
             let delButton = document.createElement('button');
             delButton.innerText = 'удалить';
+            delButton.onclick = function() {
+                deleteCourse(i);
+            }
 
             let tdActions = document.createElement('td');
             tdActions.append(editButton);
@@ -59,14 +64,6 @@ function cancel() {
     hideModal();
 }
 
-function editCourse(num, course) {
-    document.getElementById('num').value = num;
-    document.getElementById('name').value = course.name;
-    document.getElementById('videos').value = course.videos;
-    document.getElementById('price').value = course.price;
-    showModal();
-}
-
 function addCourse() {
     document.getElementById('num').value = '';
     document.getElementById('name').value = '';
@@ -94,4 +91,12 @@ function sendCourse() {
         fillCourseList();
         hideModal();
     });
+}
+
+function editCourse(num, course) {
+    document.getElementById('num').value = num;
+    document.getElementById('name').value = course.name;
+    document.getElementById('videos').value = course.videos;
+    document.getElementById('price').value = course.price;
+    showModal();
 }
