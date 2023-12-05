@@ -7,6 +7,8 @@ function fillCourseList() {
         let tbody = document.getElementById('course-list');
         tbody.innerHTML = '';
         for(let i = 0; i<courses.length; i++) {
+            tr = document.createElement('tr');
+
             let tdName = document.createElement('td');
             tdName.innerText = courses[i].name;
 
@@ -18,24 +20,18 @@ function fillCourseList() {
 
             let editButton = document.createElement('button');
             editButton.innerText = 'редактировать';
-            editButton.onclick = function() {
-                editCourse(i, courses[i]);
-            };
+
             let delButton = document.createElement('button');
             delButton.innerText = 'удалить';
-            delButton.onclick = function() {
-                deleteCourse(i);
-            }
 
-            let tdDelButton = document.createElement('td');
-            tdDelButton.append(editButton);
-            tdDelButton.append(delButton);
+            let tdActions = document.createElement('td');
+            tdActions.append(editButton);
+            tdActions.append(delButton);
 
-            tr = document.createElement('tr');
             tr.append(tdName);
             tr.append(tdVideos);
             tr.append(tdPrice);
-            tr.append(tdDelButton);
+            tr.append(tdActions);
 
             tbody.append(tr);
         }

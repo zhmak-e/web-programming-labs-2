@@ -4,7 +4,7 @@ lab8 = Blueprint('lab8', __name__)
 
 @lab8.route('/lab8/')
 def main():
-    return render_template('lab8/index.html', courses = courses)
+    return render_template('lab8/index.html')
 
 
 courses = [
@@ -21,39 +21,24 @@ def get_courses():
 
 @lab8.route('/lab8/api/courses/<int:course_num>', methods=['GET'])
 def get_course(course_num):
-    if 0 <= course_num < len(courses):
-        print(f'return courses[{course_num}] = {courses[course_num]}')
-        return courses[course_num]
+    return courses[course_num]
 
-    print('not found - 404')
-    abort(404)
+
+@lab8.route('/lab8/api/courses/<int:course_num>', methods=['DELETE'])
+def del_course(course_num):
+    del courses[course_num]
+    return '', 204
+
+
+@lab8.route('/lab8/api/courses/<int:course_num>', methods=['PUT'])
+def put_course(course_num):
+    course = request.get_json()
+    courses[course_num] = course
+    return courses[course_num]
 
 
 @lab8.route('/lab8/api/courses/', methods=['POST'])
 def add_course():
     course = request.get_json()
     courses.append(course)
-    return len(courses)-1
-
-
-@lab8.route('/lab8/api/courses/<int:course_num>', methods=['PUT'])
-def put_course(course_num):
-    course = request.get_json()
-    if 0 <= course_num < len(courses):
-        print(f'put courses[{course_num}] = {course}')
-        courses[course_num] = course
-        return courses[course_num]
-
-    print('not found - 404')
-    abort(404)
-
-
-@lab8.route('/lab8/api/courses/<int:course_num>', methods=['DELETE'])
-def del_course(course_num):
-    if 0 <= course_num < len(courses):
-        print(f'delete courses[{course_num}] = {courses[course_num]}')
-        del courses[course_num]
-        return '', 204
-
-    print('not found - 404')
-    abort(404)
+    return {"num": len(courses)-1}
